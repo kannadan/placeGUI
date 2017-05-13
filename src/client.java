@@ -10,7 +10,7 @@ public class client {
 
     public client(){
         try{
-            Socket soc=new Socket("localhost",2004);
+            Socket soc=new Socket("otitsun.oulu.fi",2015);
             dout=new DataOutputStream(soc.getOutputStream());
 
         }catch(Exception e){
