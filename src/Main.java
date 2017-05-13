@@ -27,6 +27,11 @@ public class Main {
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                 }
                 Grid grid = new Grid();
+                for (int y = 0; y< 72; y++){
+                    for(int x = 0; x< 54; x++){
+                        grid.fillCell(x,y,"Black");
+                    }
+                }
                 JFrame window = new JFrame();
                 window.setSize(600, 700);
                 window.getContentPane().setLayout(new GridLayout());

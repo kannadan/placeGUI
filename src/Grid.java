@@ -52,7 +52,7 @@ public class Grid extends JPanel {
             index++;
             g.fillRect(cellX, cellY, 9, 9);
         }
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawRect(9, 9, 486, 648);
 
 /*        g.drawLine(9, 100, 495, 100);
