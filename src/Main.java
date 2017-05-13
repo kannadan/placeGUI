@@ -1,20 +1,23 @@
 /**
  * Created by Joonas on 10.5.2017.
  */
+import sun.awt.TracedEventQueue;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-
+import java.util.ArrayList;
+import java.lang.Thread;
 
 
 public class Main {
 
     private static int chosen = 0;
     private static client talker = new client();
+    private static ArrayList<String> moves = new ArrayList<>();
 
     public static void main(String[] args){
 
@@ -97,6 +100,17 @@ public class Main {
                         chosen = 7;
                     }
                 });
+                JButton save = new JButton("Save");
+                save.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        ArrayList<String> newmoves = new ArrayList<String>(moves);
+                        askName box = new askName(talker, newmoves);
+                        System.out.print("flushing\n");
+                        moves.clear();
+                    }
+                });
+
 
 
                 c.add(blue);
@@ -107,6 +121,7 @@ public class Main {
                 c.add(magenta);
                 c.add(yellow);
                 c.add(green);
+                c.add(save);
 
 
                 b.add(c);
@@ -120,6 +135,7 @@ public class Main {
                             System.out.print("Button 1 clicked..." + Integer.valueOf(e.getX()) + " " + Integer.valueOf(e.getY())+ "\n");
                             grid.fillCell((e.getX()-20)/9,(e.getY()-40)/9, bColors[chosen]);
                             talker.send("!move " + Integer.valueOf((e.getX()-20)/9) + " - " + Integer.valueOf((e.getY()-40)/9) + " " + bColors[chosen]);
+                            moves.add(Integer.valueOf((e.getX()-20)/9) + "-" + Integer.valueOf((e.getY()-40)/9) + " " + bColors[chosen]);
                         }
                         else{
                         }

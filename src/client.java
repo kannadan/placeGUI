@@ -10,7 +10,7 @@ public class client {
 
     public client(){
         try{
-            Socket soc=new Socket("otitsun.oulu.fi",2015);
+            Socket soc=new Socket("localhost",2014);
             dout=new DataOutputStream(soc.getOutputStream());
 
         }catch(Exception e){
@@ -20,6 +20,7 @@ public class client {
     public void send(String mes){
         try{
             dout.writeUTF(mes);
+            dout.flush();
         }catch(Exception e){
             e.printStackTrace();}
     }
