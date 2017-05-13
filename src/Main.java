@@ -134,7 +134,7 @@ public class Main {
                         if (e.getButton() == MouseEvent.BUTTON1) {
                             System.out.print("Button 1 clicked..." + Integer.valueOf(e.getX()) + " " + Integer.valueOf(e.getY())+ "\n");
                             grid.fillCell((e.getX()-20)/9,(e.getY()-40)/9, bColors[chosen]);
-                            talker.send("!move " + Integer.valueOf((e.getX()-20)/9) + " - " + Integer.valueOf((e.getY()-40)/9) + " " + bColors[chosen]);
+                            talker.send("!move " + Integer.valueOf((e.getX()-20)/9) + " - " + Integer.valueOf((e.getY()-40)/9) + " " + bColors[chosen] +"\r\n");
                             moves.add(Integer.valueOf((e.getX()-20)/9) + "-" + Integer.valueOf((e.getY()-40)/9) + " " + bColors[chosen]);
                         }
                         else{
