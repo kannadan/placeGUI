@@ -32,7 +32,6 @@ public class askName extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 name = textBoxToEnterName.getText();
-                System.out.print(name);
                 new save(talker, moves, name);
                 dispose();
             }
